@@ -1,6 +1,6 @@
-White Space Information Format (WSIF)
+# White Space Information Format (WSIF)
 
-Reference Developer Kit
+## Reference Developer Kit
 
 Conforms to WSIF Version: 5.0r00
 
@@ -21,39 +21,43 @@ languages and IDEs have their own schema binding compiler. e.g. xsd.exe for .NET
 XSD for C++, etc. Search for 'data binding compiler' to find a version in your
 language of interest.
 
-Contents                    Location                                     License
---------------------------------------------------------------------------------
-  Rest Client: Jersey       com.keybridgeglobal.api.rest.client.jersey   GPL 3.0
-  Rest Client: Scribe       com.keybridgeglobal.api.rest.client.scribe   GPL 3.0
+<table>
+  <tr>
+    <td>Content</td>
+    <td>Location</td>
+    <td>License</td>
+  </tr>
+  <tr>
+    <td>Rest Client: Jersey</td>
+    <td>com.keybridgeglobal.api.rest.client.jersey</td>
+    <td>GPL 3.0</td>
+  </tr>
+  <tr>
+    <td>Rest Client: Scribe</td>
+    <td>com.keybridgeglobal.api.rest.client.scribe</td>
+    <td>GPL 3.0</td>
+  </tr>
+  <tr>
+    <td>Class Library: WSIF</td>
+    <td>com.keybridgeglobal.wsif</td>
+    <td>GPL 3.0</td>
+  </tr>
+  <tr>
+    <td>Class Library: Scribe</td>
+    <td>org.scribe</td>
+    <td>MIT</td>
+  </tr>
+</table>
 
-  Class Library: WSIF       com.keybridgeglobal.wsif                     GPL 3.0
-  Class Library: Scribe     org.scribe                                   MIT
+## References / Requires:
+  [Jersey]: http://jersey.java.net/     Jersey is the open source, production quality, JAX-RS (JSR 311) Reference Implementation for building RESTful Web services.
 
-References / Requires:
-  Jersey
-    http://jersey.java.net/
-    Jersey is the open source, production quality, JAX-RS (JSR 311) Reference
-    Implementation for building RESTful Web services.
+  [Commons Codec]: http://commons.apache.org/codec/ Apache Commons Codec (TM) software provides implementations of common encoders and decoders such as Base64, Hex, Phonetic and URLs.
 
-  Commons Codec
-    http://commons.apache.org/codec/
-    Apache Commons Codec (TM) software provides implementations of common encoders
-    and decoders such as Base64, Hex, Phonetic and URLs.
+  [Scribe-Java]: https://github.com/fernandezpablo85/scribe-java Scribe is a mature OAuth library for Java by Pablo Fernandez that is intended to work with all APIs.
 
-  Scribe-Java
-    https://github.com/fernandezpablo85/scribe-java
-    Scribe is a mature OAuth library for Java by Pablo Fernandez that is intended to
-    work with all APIs.
-
-  GNU General Public License
-    This program is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
-    the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+## GNU General Public License
+> This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+> This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details.
 
 _END
