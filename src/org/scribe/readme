@@ -1,0 +1,8 @@
+Scribe is a mature OAuth library for Java by Pablo Fernandez that is intended to
+work with all APIs. It has been featured in LinkedIn's developers forums and
+works with Google, Yahoo, LinkedIn, Twitter, and Foursquare APIs out of the box.
+
+References:
+  http://oauth.net/code/
+
+  https://github.com/fernandezpablo85/scribe-java

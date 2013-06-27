@@ -1,0 +1,47 @@
++------------------------------------------------------------------------------+
+|  File: readme                                                                |
++------------------------------------------------------------------------------+
+History:
+  06/27/13 - update XSD and entity classes to version 5.0.0
+  01/23/13 - add XSD explanations
+  10/31/12 - created
+
+This package contains three sample web client implementations and supporting
+class library software.
+
+Also included is the logical data model schema file (XSD) and a data file (XML)
+containing sample query/response messages.
+
+You may compile your own complete WSIF class library with the XSD file or use
+the included Java sample, which is pre-built for you.
+
+To build your own WSIF library in Java use the 'xjc' compiler command. Other
+languages and IDEs have their own schema binding compiler. e.g. xsd.exe for .NET,
+XSD for C++, etc. Search for 'data binding compiler' to find a version in your
+language of interest.
+
+Contents                    Location                                     License
+--------------------------------------------------------------------------------
+  Rest Client: Jersey       com.keybridgeglobal.api.rest.client.jersey   GPL 3.0
+  Rest Client: Scribe       com.keybridgeglobal.api.rest.client.scribe   GPL 3.0
+
+  Class Library: WSIF       com.keybridgeglobal.wsif                     GPL 3.0
+  Class Library: Scribe     org.scribe                                   MIT
+
+References / Requires:
+  Jersey
+    http://jersey.java.net/
+    Jersey is the open source, production quality, JAX-RS (JSR 311) Reference
+    Implementation for building RESTful Web services.
+
+  Commons Codec
+    http://commons.apache.org/codec/
+    Apache Commons Codec (TM) software provides implementations of common encoders
+    and decoders such as Base64, Hex, Phonetic and URLs.
+
+  Scribe-Java
+    https://github.com/fernandezpablo85/scribe-java
+    Scribe is a mature OAuth library for Java by Pablo Fernandez that is intended to
+    work with all APIs.
+
+--END--

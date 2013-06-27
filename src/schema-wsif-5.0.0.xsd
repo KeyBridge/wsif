@@ -1,0 +1,674 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<!-- edited with XMLSpy v2010 (http://www.altova.com) by FOOBAR (FOO) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0">
+	<xs:element name="address" type="address"/>
+	<xs:element name="antenna" type="antenna"/>
+	<xs:element name="channel" type="channel"/>
+	<xs:element name="contact" type="contact"/>
+	<xs:element name="coordinate" type="coordinate"/>
+	<xs:element name="device" type="device"/>
+	<xs:element name="enumOffshoreRadio" type="enumOffshoreRadio"/>
+	<xs:element name="enumRadioAstronomy" type="enumRadioAstronomy"/>
+	<xs:element name="enumUrban" type="enumUrban"/>
+	<xs:element name="enumWaiverMvpd" type="enumWaiverMvpd"/>
+	<xs:element name="enumWaiverTvrx" type="enumWaiverTvrx"/>
+	<xs:element name="enumWaiverTvrxPK" type="enumWaiverTvrxPK"/>
+	<xs:element name="geometry" type="geometry"/>
+	<xs:element name="license" type="license"/>
+	<xs:element name="location" type="location"/>
+	<xs:element name="rxGeneric" type="rxGeneric"/>
+	<xs:element name="rxLpaux" type="rxLpaux"/>
+	<xs:element name="rxMicrowave" type="rxMicrowave"/>
+	<xs:element name="rxTv" type="rxTv"/>
+	<xs:element name="schedule" type="schedule"/>
+	<xs:element name="station" type="station"/>
+	<xs:element name="txGeneric" type="txGeneric"/>
+	<xs:element name="txLpaux" type="txLpaux"/>
+	<xs:element name="txMicrowave" type="txMicrowave"/>
+	<xs:element name="txRxLandMobile" type="txRxLandMobile"/>
+	<xs:element name="txRxLandMobileBase" type="txRxLandMobileBase"/>
+	<xs:element name="txRxWsd" type="txRxWsd"/>
+	<xs:element name="txTv" type="txTv"/>
+	<xs:element name="whitespaceFrequency" type="whitespaceFrequency"/>
+	<xs:element name="whitespaceQuery" type="whitespaceQuery"/>
+	<xs:element name="whitespaceRegistration" type="whitespaceRegistration"/>
+	<xs:element name="whitespaceResponse" type="whitespaceResponse"/>
+	<xs:element name="wirelessService" type="wirelessService"/>
+	<xs:complexType name="address">
+		<xs:sequence/>
+		<xs:attribute name="address" type="xs:string"/>
+		<xs:attribute name="city" type="xs:string" use="required"/>
+		<xs:attribute name="county" type="xs:string"/>
+		<xs:attribute name="state" type="xs:string" use="required"/>
+		<xs:attribute name="postalCode" type="xs:string"/>
+		<xs:attribute name="country" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="antenna">
+		<xs:sequence>
+			<xs:element name="HH" type="xs:string"/>
+			<xs:element name="HV" type="xs:string" minOccurs="0"/>
+			<xs:element name="VV" type="xs:string" minOccurs="0"/>
+			<xs:element name="VH" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="manufacturer" type="xs:string" use="required"/>
+		<xs:attribute name="model" type="xs:string" use="required"/>
+		<xs:attribute name="description" type="xs:string"/>
+		<xs:attribute name="comment" type="xs:string"/>
+		<xs:attribute name="lowBandGain" type="xs:double"/>
+		<xs:attribute name="midBandGain" type="xs:double"/>
+		<xs:attribute name="highBandGain" type="xs:double"/>
+		<xs:attribute name="frequencyMin" type="xs:double"/>
+		<xs:attribute name="frequencyMax" type="xs:double"/>
+		<xs:attribute name="azimuthBeamWidth" type="xs:double"/>
+		<xs:attribute name="elevationBeamWidth" type="xs:double"/>
+		<xs:attribute name="vswr" type="xs:double"/>
+		<xs:attribute name="frontToBack" type="xs:double"/>
+		<xs:attribute name="electricalDowntilt" type="xs:double"/>
+		<xs:attribute name="dateData" type="xs:dateTime"/>
+	</xs:complexType>
+	<xs:complexType name="channel">
+		<xs:sequence/>
+		<xs:attribute name="allocation" type="xs:string" use="required"/>
+		<xs:attribute name="channel" type="xs:double" use="required"/>
+		<xs:attribute name="frequencyMin" type="xs:double" use="required"/>
+		<xs:attribute name="frequencyMax" type="xs:double" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="contact">
+		<xs:sequence>
+			<xs:element ref="address" minOccurs="0"/>
+			<xs:element name="vCard" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="email" type="xs:string" use="required"/>
+		<xs:attribute name="nameFirst" type="xs:string"/>
+		<xs:attribute name="nameLast" type="xs:string"/>
+		<xs:attribute name="title" type="xs:string"/>
+		<xs:attribute name="organization" type="xs:string"/>
+		<xs:attribute name="phone" type="xs:string"/>
+		<xs:attribute name="fax" type="xs:string"/>
+		<xs:attribute name="cell" type="xs:string"/>
+		<xs:attribute name="contactType" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="coordinate">
+		<xs:sequence/>
+		<xs:attribute name="latitude" type="xs:double" use="required"/>
+		<xs:attribute name="longitude" type="xs:double" use="required"/>
+		<xs:attribute name="accuracy" type="xs:double"/>
+		<xs:attribute name="altitude" type="xs:double"/>
+		<xs:attribute name="altitudeAccuracy" type="xs:double"/>
+		<xs:attribute name="heading" type="xs:double"/>
+		<xs:attribute name="speed" type="xs:double"/>
+		<xs:attribute name="domTimeStamp" type="xs:long"/>
+		<xs:attribute name="datum" type="enumWsifDatum" use="required"/>
+		<xs:attribute name="elevationModel" type="xs:string"/>
+		<xs:attribute name="averageTerrain" type="xs:double"/>
+	</xs:complexType>
+	<xs:complexType name="device" abstract="true">
+		<xs:sequence>
+			<xs:element ref="antenna"/>
+		</xs:sequence>
+		<xs:attribute name="frequency" type="xs:double"/>
+		<xs:attribute name="chWidth" type="xs:double"/>
+		<xs:attribute name="erp" type="xs:double"/>
+		<xs:attribute name="erpMax" type="xs:double"/>
+		<xs:attribute name="digital" type="xs:boolean" use="required"/>
+		<xs:attribute name="passive" type="xs:boolean" use="required"/>
+		<xs:attribute name="deviceId" type="xs:string"/>
+		<xs:attribute name="deviceSn" type="xs:string"/>
+		<xs:attribute name="manufacturer" type="xs:string"/>
+		<xs:attribute name="model" type="xs:string"/>
+		<xs:attribute name="name" type="xs:string"/>
+		<xs:attribute name="description" type="xs:string"/>
+		<xs:attribute name="digitalModRate" type="xs:double"/>
+		<xs:attribute name="digitalModType" type="xs:string"/>
+		<xs:attribute name="equipmentClass" type="xs:string"/>
+		<xs:attribute name="ea" type="xs:string"/>
+		<xs:attribute name="equipmentRuleNum" type="xs:string"/>
+		<xs:attribute name="emissionCode" type="xs:string"/>
+		<xs:attribute name="wirelessServiceType" type="enumWsifWirelessServiceType"/>
+		<xs:attribute name="antennaRotation" type="xs:double"/>
+		<xs:attribute name="antennaHag" type="xs:double" use="required"/>
+		<xs:attribute name="antennaHaat" type="xs:double"/>
+		<xs:attribute name="antennaRcAmsl" type="xs:double"/>
+	</xs:complexType>
+	<xs:complexType name="txGeneric">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="receiverList" type="device" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="rxGeneric">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="transmitterList" type="device" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="txLpaux">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element ref="channel"/>
+					<xs:element name="receiver" type="rxLpaux" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="deviceType" type="xs:string"/>
+				<xs:attribute name="groupId" type="xs:string"/>
+				<xs:attribute name="subGroupId" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="rxLpaux">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="transmitters" type="txLpaux" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="groupId" type="xs:string"/>
+				<xs:attribute name="sensitivity" type="xs:double"/>
+				<xs:attribute name="subGroupId" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="txTv">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element ref="channel"/>
+					<xs:element name="receivers" type="rxTv" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="broadcastCallSign" type="xs:string"/>
+				<xs:attribute name="networkAffiliation" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="rxTv">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element ref="channel"/>
+					<xs:element name="transmitter" type="txTv" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="txRxLandMobileBase">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="mobileUnitList" type="txRxLandMobile" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="radiusOfOperation" type="xs:long"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="txRxLandMobile">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="baseStation" type="txRxLandMobileBase" minOccurs="0"/>
+					<xs:element ref="channel"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="txMicrowave">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="receiver" type="rxMicrowave" minOccurs="0"/>
+				</xs:sequence>
+				<xs:attribute name="broadcastCallSign" type="xs:string"/>
+				<xs:attribute name="pathTypeDescription" type="xs:string"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="rxMicrowave">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="transmitter" type="txMicrowave" minOccurs="0"/>
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="txRxWsd">
+		<xs:complexContent>
+			<xs:extension base="device">
+				<xs:sequence>
+					<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+					<xs:element name="desiredChannelList" type="channel" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="receivers" type="txRxWsd" minOccurs="0" maxOccurs="unbounded"/>
+					<xs:element name="transmitters" type="txRxWsd" minOccurs="0" maxOccurs="unbounded"/>
+				</xs:sequence>
+				<xs:attribute name="desiredFrequency" type="xs:double"/>
+				<xs:attribute name="wsdMode" type="enumWsifWsdMode" use="required"/>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="geometry">
+		<xs:sequence>
+			<xs:element name="envelope" type="xs:string"/>
+			<xs:element name="geometry" type="xs:string"/>
+			<xs:element name="polygon" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="license">
+		<xs:sequence/>
+		<xs:attribute name="callSign" type="xs:string" use="required"/>
+		<xs:attribute name="licenseeName" type="xs:string"/>
+		<xs:attribute name="dateGrant" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateExpire" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateLastUpdated" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dataSource" type="enumWsifDataSource"/>
+		<xs:attribute name="wirelessServiceType" type="enumWsifWirelessServiceType" use="required"/>
+		<xs:attribute name="description" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="location">
+		<xs:sequence>
+			<xs:element ref="address" minOccurs="0"/>
+			<xs:element ref="coordinate" minOccurs="0"/>
+			<xs:element name="geometry" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="geocode" type="enumWsifGeocode" use="required"/>
+		<xs:attribute name="locationType" type="xs:string"/>
+		<xs:attribute name="timeZone" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="schedule">
+		<xs:sequence>
+			<xs:element name="vevent" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="dtstart" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dtend" type="xs:dateTime" use="required"/>
+		<xs:attribute name="rrule" type="xs:string" use="required"/>
+		<xs:attribute name="timeZone" type="xs:string" use="required"/>
+		<xs:attribute name="uid" type="xs:string" use="required"/>
+		<xs:attribute name="categories" type="xs:string"/>
+		<xs:attribute name="created" type="xs:dateTime" use="required"/>
+		<xs:attribute name="classification" type="enumWsifScheduleClassification"/>
+		<xs:attribute name="description" type="xs:string"/>
+		<xs:attribute name="organizer" type="xs:string"/>
+		<xs:attribute name="priority" type="xs:int"/>
+		<xs:attribute name="summary" type="xs:string"/>
+		<xs:attribute name="transparency" type="enumWsifScheduleTransparency"/>
+		<xs:attribute name="allDayEvent" type="xs:boolean" use="required"/>
+		<xs:attribute name="dateExpiration" type="xs:dateTime"/>
+	</xs:complexType>
+	<xs:complexType name="station">
+		<xs:sequence>
+			<xs:element ref="location"/>
+			<xs:element ref="schedule"/>
+			<xs:element name="contactList" type="contact" minOccurs="0" maxOccurs="unbounded"/>
+			<xs:choice minOccurs="0" maxOccurs="unbounded">
+				<xs:element ref="device"/>
+				<xs:element ref="txGeneric"/>
+				<xs:element ref="rxGeneric"/>
+				<xs:element ref="txLpaux"/>
+				<xs:element ref="rxLpaux"/>
+				<xs:element ref="txTv"/>
+				<xs:element ref="rxTv"/>
+				<xs:element ref="txRxLandMobileBase"/>
+				<xs:element ref="txRxLandMobile"/>
+				<xs:element ref="txMicrowave"/>
+				<xs:element ref="rxMicrowave"/>
+				<xs:element ref="txRxWsd"/>
+			</xs:choice>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="description" type="xs:string"/>
+		<xs:attribute name="stationClass" type="enumWsifStationClass" use="required"/>
+		<xs:attribute name="primary" type="xs:boolean" use="required"/>
+		<xs:attribute name="stationType" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="whitespaceRegistration">
+		<xs:sequence>
+			<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+			<xs:element ref="schedule"/>
+			<xs:element ref="geometry"/>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="xs:string" use="required"/>
+		<xs:attribute name="adjacent" type="xs:boolean" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="description" type="xs:string"/>
+		<xs:attribute name="whitespaceType" type="enumWsifWhitespaceType" use="required"/>
+		<xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateLastUpdated" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="wirelessService">
+		<xs:sequence>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+			<xs:element ref="license"/>
+			<xs:element name="contactList" type="contact" maxOccurs="unbounded"/>
+			<xs:element name="stationList" type="station" maxOccurs="unbounded"/>
+			<xs:element name="whitespaceRegistrationList" type="whitespaceRegistration" minOccurs="0" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="xs:string" use="required"/>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="description" type="xs:string"/>
+		<xs:attribute name="wirelessServiceType" type="enumWsifWirelessServiceType" use="required"/>
+		<xs:attribute name="registrar" type="enumRegistrar" use="required"/>
+		<xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateLastUpdated" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="whitespaceFrequency">
+		<xs:sequence>
+			<xs:element name="wsdModeList" type="enumWsifWsdMode" maxOccurs="unbounded"/>
+			<xs:element ref="channel"/>
+			<xs:element ref="location"/>
+			<xs:element ref="schedule"/>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="xs:string" use="required"/>
+		<xs:attribute name="erpMax" type="xs:double"/>
+	</xs:complexType>
+	<xs:complexType name="whitespaceQuery">
+		<xs:sequence>
+			<xs:element ref="txRxWsd"/>
+			<xs:element ref="location"/>
+			<xs:element ref="schedule" minOccurs="0"/>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="xs:string" use="required"/>
+		<xs:attribute name="protocolVersion" type="xs:double" use="required"/>
+		<xs:attribute name="messageType" type="enumWsifQueryType" use="required"/>
+		<xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="whitespaceResponse">
+		<xs:sequence>
+			<xs:element ref="location"/>
+			<xs:element name="whitespaceFrequencyList" type="whitespaceFrequency" maxOccurs="unbounded"/>
+			<xs:element name="extension" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="uuid" type="xs:string" use="required"/>
+		<xs:attribute name="messageType" type="enumWsifResponseType" use="required"/>
+		<xs:attribute name="protocolVersion" type="xs:double" use="required"/>
+		<xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateEffective" type="xs:dateTime" use="required"/>
+		<xs:attribute name="dateExpiration" type="xs:dateTime" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="enumOffshoreRadio">
+		<xs:sequence>
+			<xs:element ref="channel"/>
+			<xs:element name="geometry" type="xs:string"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="ruleNum" type="xs:string"/>
+	</xs:complexType>
+	<xs:complexType name="enumRadioAstronomy">
+		<xs:sequence>
+			<xs:element name="geometry" type="xs:string"/>
+			<xs:element ref="coordinate" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="siteId" type="xs:string" use="required"/>
+		<xs:attribute name="observatory" type="xs:string" use="required"/>
+		<xs:attribute name="latDeg" type="xs:int" use="required"/>
+		<xs:attribute name="latMin" type="xs:int" use="required"/>
+		<xs:attribute name="latSec" type="xs:double" use="required"/>
+		<xs:attribute name="latDir" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="lonDeg" type="xs:int" use="required"/>
+		<xs:attribute name="lonMin" type="xs:int" use="required"/>
+		<xs:attribute name="lonSec" type="xs:double" use="required"/>
+		<xs:attribute name="lonDir" type="xs:unsignedShort" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="enumUrban">
+		<xs:sequence>
+			<xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+		</xs:sequence>
+		<xs:attribute name="name" type="xs:string" use="required"/>
+		<xs:attribute name="city" type="xs:string" use="required"/>
+		<xs:attribute name="state" type="xs:string" use="required"/>
+		<xs:attribute name="latitude" type="xs:double" use="required"/>
+		<xs:attribute name="longitude" type="xs:double" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="enumWaiverMvpd">
+		<xs:sequence>
+			<xs:element ref="channel"/>
+			<xs:element ref="coordinate" minOccurs="0"/>
+		</xs:sequence>
+		<xs:attribute name="operator" type="xs:string" use="required"/>
+		<xs:attribute name="latDeg" type="xs:int" use="required"/>
+		<xs:attribute name="latMin" type="xs:int" use="required"/>
+		<xs:attribute name="latSec" type="xs:double" use="required"/>
+		<xs:attribute name="latDir" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="lonDeg" type="xs:int" use="required"/>
+		<xs:attribute name="lonMin" type="xs:int" use="required"/>
+		<xs:attribute name="lonSec" type="xs:double" use="required"/>
+		<xs:attribute name="lonDir" type="xs:unsignedShort" use="required"/>
+		<xs:attribute name="callSignRx" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:complexType name="enumWaiverTvrx">
+		<xs:sequence>
+			<xs:element ref="enumWaiverTvrxPK"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="enumWaiverTvrxPK">
+		<xs:sequence/>
+		<xs:attribute name="callSignRx" type="xs:string" use="required"/>
+		<xs:attribute name="callSignTx" type="xs:string" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="enumRegistrar">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="FCC"/>
+			<xs:enumeration value="INDUSTRYCANADA"/>
+			<xs:enumeration value="COFETEL"/>
+			<xs:enumeration value="AIRITY"/>
+			<xs:enumeration value="COMSEARCH"/>
+			<xs:enumeration value="GOOGLE"/>
+			<xs:enumeration value="KEYBRIDGE"/>
+			<xs:enumeration value="LSTELCOM"/>
+			<xs:enumeration value="MICROSOFT"/>
+			<xs:enumeration value="RADIOSOFT"/>
+			<xs:enumeration value="NEUSTAR"/>
+			<xs:enumeration value="SPECTRUMBRIDGE"/>
+			<xs:enumeration value="TELCORDIA"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifAntennaPolarization">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="HH"/>
+			<xs:enumeration value="HV"/>
+			<xs:enumeration value="VH"/>
+			<xs:enumeration value="VV"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifDataSource">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="KEYBRIDGE"/>
+			<xs:enumeration value="ENUMERATED"/>
+			<xs:enumeration value="CDBS"/>
+			<xs:enumeration value="COALS"/>
+			<xs:enumeration value="ELS"/>
+			<xs:enumeration value="IBFS"/>
+			<xs:enumeration value="LICENSE"/>
+			<xs:enumeration value="ULS"/>
+			<xs:enumeration value="BDBS"/>
+			<xs:enumeration value="COFETEL"/>
+			<xs:enumeration value="PEERING"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifDatum">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="WGS_84"/>
+			<xs:enumeration value="NAD_83"/>
+			<xs:enumeration value="NAD_27"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifDeviceClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="RXGENERIC"/>
+			<xs:enumeration value="TXGENERIC"/>
+			<xs:enumeration value="RXLPAUX"/>
+			<xs:enumeration value="TXLPAUX"/>
+			<xs:enumeration value="RXTV"/>
+			<xs:enumeration value="TXTV"/>
+			<xs:enumeration value="TXRXLANDMOBILEBASE"/>
+			<xs:enumeration value="TXRXLANDMOBILE"/>
+			<xs:enumeration value="RXMICROWAVE"/>
+			<xs:enumeration value="TXMICROWAVE"/>
+			<xs:enumeration value="TXRXWSD"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifGeocode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="NO"/>
+			<xs:enumeration value="GC"/>
+			<xs:enumeration value="RG"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifPathType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="P2P"/>
+			<xs:enumeration value="P2MP"/>
+			<xs:enumeration value="MP2P"/>
+			<xs:enumeration value="MESH"/>
+			<xs:enumeration value="OTHER"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifStationClass">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TX"/>
+			<xs:enumeration value="RX"/>
+			<xs:enumeration value="TXRX"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifWhitespaceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="KEYBRIDGE_DEMO"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_ASTR"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_ORS"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_URBAN"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_LMRS"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_LPAUX"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_RX"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_DD"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_BCAUX"/>
+			<xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_RX_MVPD"/>
+			<xs:enumeration value="CA_GC_IC_WHITESPACETYPE_TV"/>
+			<xs:enumeration value="CA_GC_IC_WHITESPACETYPE_TV_RX"/>
+			<xs:enumeration value="MX_GOV_COFETEL_WHITESPACETYPE_TV"/>
+			<xs:enumeration value="MX_GOV_COFETEL_WHITESPACETYPE_TV_RX"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifWirelessServiceType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="KEYBRIDGE_WIRELESSSERVICETYPE_DEMO"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_ASTR"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_ORS"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_URBAN"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_LPAUX"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV_RX"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_BCAUX"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV_RX_MVPD"/>
+			<xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_WSD"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DD"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DT"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TV"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DC"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_CA"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_LD"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TX"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_LP_D"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_LP_A"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TX_D"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TX_A"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DS"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DX"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TS"/>
+			<xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TB"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_YK"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_IK"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_IG"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_YG"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_PW"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_YW"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_LV"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_LP"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_RP"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_AB"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_AI"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_AS"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TB"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TI"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TP"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TS"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TT"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_CD"/>
+			<xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_UM"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TVTV"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_DT"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_LP"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_LP_D"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_LP_A"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TX"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TX_D"/>
+			<xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TX_A"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TVTV"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_DT"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_LP"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_LP_D"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_LP_A"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_TX"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TX"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_TX_D"/>
+			<xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_TX_A"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifWsdMode">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PSEUDO"/>
+			<xs:enumeration value="LPAUX"/>
+			<xs:enumeration value="LPAUX_RESERVED"/>
+			<xs:enumeration value="CLIENT"/>
+			<xs:enumeration value="ACCESS_POINT"/>
+			<xs:enumeration value="ACCESS_POINT_ADJACENT"/>
+			<xs:enumeration value="ACCESS_POINT_MOBILE"/>
+			<xs:enumeration value="ACCESS_POINT_FIXED"/>
+			<xs:enumeration value="FORBIDDEN_WSD"/>
+			<xs:enumeration value="FORBIDDEN_WSD_FIXED"/>
+			<xs:enumeration value="FORBIDDEN_LPAUX"/>
+			<xs:enumeration value="FORBIDDEN_BY_RULE"/>
+			<xs:enumeration value="FORBIDDEN_BY_ENFORCEMENT"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifScheduleTransparency">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="TRANSPARENT"/>
+			<xs:enumeration value="OPAQUE"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifScheduleClassification">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="PUBLIC"/>
+			<xs:enumeration value="PRIVATE"/>
+			<xs:enumeration value="CONFIDENTIAL"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifQueryType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="REQUEST"/>
+			<xs:enumeration value="INFORMATION"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="enumWsifResponseType">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AUTHORIZATION"/>
+			<xs:enumeration value="INFORMATION"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

@@ -1,0 +1,114 @@
+TxLpaux Query:
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<coordinate datum="WGS_84" speed="0.0" heading="0.0" altitudeAccuracy="0.0" accuracy="0" altitude="0.0" longitude="-77.009139" latitude="38.889927"/>
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<whitespaceResponse uuid="02c5d33f-18ea-414b-a773-812f8b64df37" protocolVersion="1.0" messageType="INFORMATION" dateCreated="2012-06-25T10:46:13.783-04:00" dateEffective="2012-06-25T10:46:13.782-04:00" dateExpiration="2012-06-25T23:59:59.772-04:00" statusIndicator="2">
+  <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635556050" datum="WGS_84"/>
+  <whitespaceFrequencyList>
+    <channel id="32" allocation="broadcasting" channel="32.0" minFreq="578.0" maxFreq="584.0"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList>
+    <channel id="38" allocation="broadcasting" channel="38.0" minFreq="614.0" maxFreq="620.0"/>
+  </whitespaceFrequencyList>
+</whitespaceResponse>
+
+
+TxWsd Query / Response
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<whitespaceQuery dateCreated="2012-06-25T10:46:52.377-04:00" messageType="REQUEST" protocolVersion="1.0" uuid="08a5f434-6826-471a-b6d3-e70cabd64557">
+  <txWsd wsdMode="ACCESS_POINT" antennaRotation="0.0" deviceSn="demo" deviceId="demo" passive="false" digital="false">
+    <antenna id="1"/>
+  </txWsd>
+  <coordinate datum="WGS_84" speed="0.0" heading="0.0" altitudeAccuracy="0.0" accuracy="0" altitude="0.0" longitude="-77.009139" latitude="38.889927"/>
+</whitespaceQuery>
+
+
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<whitespaceResponse uuid="a0138e73-3cc7-40e4-826d-5e8b35469a3a" protocolVersion="1.0" messageType="INFORMATION" dateCreated="2012-06-25T10:47:37.725-04:00" dateEffective="2012-06-25T10:47:37.719-04:00" dateExpiration="2012-06-25T23:59:59.718-04:00" statusIndicator="30">
+  <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  <whitespaceFrequencyList uuid="1c779023-99d8-47c6-84ee-429fc25d2dd3" maxEirp="-13.9794">
+    <channel id="21" allocation="gov.fcc.broadcasting.512-608" channel="21.0" minFreq="512.0" maxFreq="518.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="fdcb33fd-284c-44a6-93c0-d2346f2fc6c3" maxEirp="-10.0">
+    <channel id="22" allocation="broadcasting" channel="22.0" minFreq="518.0" maxFreq="524.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="abdc6dbc-b7a8-4378-bf9c-ada8b5d42895" maxEirp="-13.9794">
+    <channel id="23" allocation="gov.fcc.broadcasting.512-608" channel="23.0" minFreq="524.0" maxFreq="530.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="81b656c4-dde7-45a0-8740-00a3416a10ab" maxEirp="-13.9794">
+    <channel id="26" allocation="gov.fcc.broadcasting.512-608" channel="26.0" minFreq="542.0" maxFreq="548.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="a425a650-8c0a-48d6-9e27-4230f9e58b2b" maxEirp="-13.9794">
+    <channel id="28" allocation="gov.fcc.broadcasting.512-608" channel="28.0" minFreq="554.0" maxFreq="560.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="cd7c381c-47a3-44b8-8cf5-5af0d227e931" maxEirp="-10.0">
+    <channel id="29" allocation="broadcasting" channel="29.0" minFreq="560.0" maxFreq="566.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="d47714d3-1ced-4fad-b79d-da19d2465fa7" maxEirp="-10.0">
+    <channel id="30" allocation="broadcasting" channel="30.0" minFreq="566.0" maxFreq="572.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="4e1bab6b-3650-4fcc-8625-e3683953484d" maxEirp="-13.9794">
+    <channel id="31" allocation="gov.fcc.broadcasting.512-608" channel="31.0" minFreq="572.0" maxFreq="578.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="ea433a39-dba8-41ba-87a1-11b7220efce9" maxEirp="-10.0">
+    <channel id="38" allocation="broadcasting" channel="38.0" minFreq="614.0" maxFreq="620.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="9c5a054a-5a72-463c-bba5-751c895a994e" maxEirp="-10.0">
+    <channel id="39" allocation="broadcasting" channel="39.0" minFreq="620.0" maxFreq="626.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="79887f16-02b2-4f63-ad32-d9753825f61f" maxEirp="-10.0">
+    <channel id="40" allocation="broadcasting" channel="40.0" minFreq="626.0" maxFreq="632.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="b5eaeb29-4a37-45e2-b412-039aec1b5f21" maxEirp="-10.0">
+    <channel id="41" allocation="broadcasting" channel="41.0" minFreq="632.0" maxFreq="638.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="cba2d281-6425-4017-942f-e7ee85805a24" maxEirp="-10.0">
+    <channel id="42" allocation="broadcasting" channel="42.0" minFreq="638.0" maxFreq="644.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="5f76b9e5-8165-4032-8ca9-7da929f56ed9" maxEirp="-10.0">
+    <channel id="43" allocation="broadcasting" channel="43.0" minFreq="644.0" maxFreq="650.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="44744155-645c-4350-876d-0f120988e821" maxEirp="-10.0">
+    <channel id="44" allocation="broadcasting" channel="44.0" minFreq="650.0" maxFreq="656.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="f499e848-89b7-4b7f-a142-52a90a78f0c2" maxEirp="-10.0">
+    <channel id="45" allocation="broadcasting" channel="45.0" minFreq="656.0" maxFreq="662.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="3a506526-04b3-4286-9dda-84d506bd39a5" maxEirp="-10.0">
+    <channel id="46" allocation="broadcasting" channel="46.0" minFreq="662.0" maxFreq="668.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="cbd55598-7895-45e8-844a-d2ba74477897" maxEirp="-13.9794">
+    <channel id="47" allocation="gov.fcc.broadcasting.614-698" channel="47.0" minFreq="668.0" maxFreq="674.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="e17e45c1-0c46-4ef0-a85d-d57ae999fdf3" maxEirp="-13.9794">
+    <channel id="49" allocation="gov.fcc.broadcasting.614-698" channel="49.0" minFreq="680.0" maxFreq="686.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <whitespaceFrequencyList uuid="50487837-54e6-4b4a-95c4-3fcb22cdc83a" maxEirp="-13.9794">
+    <channel id="51" allocation="gov.fcc.broadcasting.614-698" channel="51.0" minFreq="692.0" maxFreq="698.0"/>
+    <coordinate latitude="38.889927" longitude="-77.009139" altitude="0.0" accuracy="0" altitudeAccuracy="0.0" heading="0.0" speed="0.0" domTimeStamp="1340635640248" datum="WGS_84"/>
+  </whitespaceFrequencyList>
+  <extension>606c6e96-a35c-434f-a077-539bd8790eeb=%5B33%5D&amp;190f9b73-a5cd-46ac-87cd-18fca795f699=%5B32%2C%2B34%5D&amp;829be443-02de-4d98-bc15-919349140280=%5B35%2C%2B37%5D&amp;8c7ce41a-7454-419a-9700-737c34df6a30=%5B48%5D&amp;f61098bd-c572-4699-9829-47a6f021d387=%5B5%5D&amp;6c4702dc-290a-42d6-ad23-6843eb139d08=%5B47%2C%2B49%5D&amp;cceefff3-3ee2-4e6c-8500-a4846cd99477=%5B23%2C%2B25%5D&amp;23374d6d-3b5b-449a-be63-8a30ab53fbd8=%5B35%5D&amp;3a737a5f-34b8-44a8-9bbc-ec7f8c1ccad4=%5B6%5D&amp;f9eae065-5be6-44d9-8a13-da2f5b8a684c=%5B15%5D&amp;97a25199-f66a-446c-b5b6-149c92c280ae=%5B14%2C%2B16%5D&amp;7529b74c-ec34-48c7-89ec-2ee5a214ee96=%5B33%5D&amp;dd2145d5-f427-4216-acc1-8c6a04f9d5b8=%5B3%2C%2B5%5D&amp;63f4c928-f540-4542-80dc-74a29d27e763=%5B33%2C%2B35%5D&amp;99f42993-655f-4b9e-9635-d999b8b8cbc1=%5B13%2C%2B15%5D&amp;6eea3e71-96df-4b55-a5f4-b3066a9d5da8=%5B4%5D&amp;5f9d88ee-ce65-4635-b013-0c808e257140=%5B24%2C%2B26%5D&amp;1ac39dab-8ed9-4340-9224-e8d7ce5b7fba=%5B27%5D&amp;a43a50b4-20d8-4d3a-887f-f70d708d513e=%5B48%5D&amp;31a0b5c7-dd70-4ba4-a739-78ab55aea90f=%5B24%2C%2B26%5D&amp;0b3465e7-0bbb-465b-89a5-5e9c1bd1fd2f=%5B49%2C%2B51%5D&amp;a5e27601-0dee-41da-b94a-8c05d4428480=%5B13%2C%2B15%5D&amp;7de34094-40f1-4654-83db-d8eebc3357d7=%5B23%2C%2B25%5D&amp;ecf4943a-1ed5-468f-b0dd-b12a7f215d38=%5B15%5D&amp;897df191-ad74-4358-a3f2-db7b278fac03=%5B32%5D&amp;37a530c1-ecdb-4e5d-b3ad-b88230667b65=%5B26%2C%2B28%5D&amp;d7c3fc3e-8942-4bc3-b46c-4e5dc72b27bc=%5B7%5D&amp;8beab1e7-7b9f-4d71-bd02-3c03f7f5d708=%5B9%5D&amp;61c5fcf1-ffb9-47d7-962b-69979bc8caea=%5B33%2C%2B35%5D&amp;cdb58146-681c-4064-adec-47dd5b78d962=%5B32%2C%2B34%5D&amp;fbc37db4-6c07-4cc2-9575-fd661e0143a3=%5B25%5D&amp;dd2657f5-3e5c-4b9a-8b8e-f17258f39697=%5B24%2C%2B26%5D&amp;9d121869-4c52-4700-95ad-8eccb1b93c12=%5B17%2C%2B18%5D&amp;19a3826a-1f4f-4773-95cd-9d26e214a567=%5B34%2C%2B36%5D&amp;663e76f3-75d1-414d-9d5d-2b00cdc3f478=%5B24%5D&amp;9d7e9092-da47-4b5e-bfdf-dd6dd8395311=%5B14%5D&amp;888304e7-277b-4e89-80db-228a44e72303=%5B14%5D&amp;8dc84e77-a484-4fcd-8350-80c2bb10f681=%5B5%2C%2B7%5D&amp;8155f94e-9862-46e6-b51f-c849079bac31=%5B16%2C%2B19%5D&amp;538c9e04-1719-406c-b576-4211f93d91be=%5B25%5D&amp;af6a715e-84da-4a93-963c-518ff236851a=%5B4%2C%2B6%5D&amp;8a7d3f33-eac8-4f25-9934-bdb72ca07a28=%5B24%5D&amp;2b51a6d5-19a7-4849-99b7-ee36bd3afad8=%5B7%2C%2B9%5D&amp;160404a8-8e7e-46a8-95b7-3d983f3cfe06=%5B4%5D&amp;bae3516d-2c11-410c-b664-f587cf50c260=%5B14%5D&amp;4b2f56fa-a98c-4308-8cae-80949219467c=%5B20%5D&amp;234f5e64-260f-43ac-9ea8-f5e0e2c6036f=%5B13%2C%2B15%5D&amp;92509f58-f824-4353-a7ab-8a54db78d4f3=%5B26%2C%2B28%5D&amp;6f8cca87-390b-4b1d-9dcb-19b16c0091e8=%5B25%5D&amp;fba9cf32-ef27-4eeb-b0fa-ddcda6d59eb0=%5B34%5D&amp;6ab779c4-1b5e-44da-9d0e-5ac6c043bbd7=%5B31%2C%2B33%5D&amp;a2ef9c6d-4e12-48e4-ba66-5f2466bb030f=%5B19%2C%2B21%5D&amp;284739af-519f-47c9-b79e-9179e98f969c=%5B8%2C%2B10%5D&amp;0a3c6efc-dc06-410b-9a44-ee210cf320b4=%5B24%2C%2B26%5D&amp;de551575-f2af-43ec-ae9e-d8b9ac994787=%5B25%5D&amp;d6c13cc6-28e8-458e-b3ce-6e3ae9b98708=%5B14%2C%2B16%5D&amp;fd36302a-1a7a-4a97-a7df-cb9ee2f9cd6f=%5B14%5D&amp;7a529f53-1e1b-4503-82a5-14da5177b115=%5B6%2C%2B8%5D&amp;8d0c9bbc-efeb-4ddf-8011-40b867b92d4f=%5B15%5D&amp;dfb5b5df-cc1d-4460-9781-e2cee420a7b1=%5B13%2C%2B15%5D&amp;1b82a2ef-db79-4c40-9887-d1000217baa8=%5B50%5D&amp;23c58ce1-3fff-4ebc-ab3b-70d68d33181c=%5B27%5D&amp;fb318915-7104-4789-8a30-8b20d0a9c513=%5B47%2C%2B49%5D&amp;940bc7d8-ed32-42e5-931f-3a087974efb6=%5B7%2C%2B9%5D&amp;56579399-a194-4b06-8b07-4b1c2b4e3485=%5B14%2C%2B16%5D&amp;2a34f922-1fe2-4ac6-a9f5-4a0a01a9bb3c=%5B31%2C%2B33%5D&amp;1c20041c-c602-42d3-8651-ee4a52cf0d93=%5B8%5D&amp;c1c6b7d4-6c15-43e8-b0bd-a146a81eb237=%5B34%5D&amp;9f5fb429-58b1-49fd-a4e9-f3ef73d416f0=%5B3%2C%2B5%5D&amp;3f1b03a4-825a-4df5-bfa1-a58f33888efd=%5B32%5D&amp;82046cdc-1ab7-4eec-845e-bc35feb93623=%5B36%5D&amp;1d4e415f-7dff-421d-9a80-5e4f2762bce2=%5B8%5D</extension>
+</whitespaceResponse>

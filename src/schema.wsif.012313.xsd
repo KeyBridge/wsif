@@ -1,0 +1,1298 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+
+  <xs:element name="address" type="address"/>
+
+  <xs:element name="antenna" type="antenna"/>
+
+  <xs:element name="channel" type="channel"/>
+
+  <xs:element name="contact" type="contact"/>
+
+  <xs:element name="coordinate" type="coordinate"/>
+
+  <xs:element name="credential" type="credential"/>
+
+  <xs:element name="device" type="device"/>
+
+  <xs:element name="geometry" type="geometry"/>
+
+  <xs:element name="license" type="license"/>
+
+  <xs:element name="location" type="location"/>
+
+  <xs:element name="rxGeneric" type="rxGeneric"/>
+
+  <xs:element name="rxLpaux" type="rxLpaux"/>
+
+  <xs:element name="schedule" type="schedule"/>
+
+  <xs:element name="station" type="station"/>
+
+  <xs:element name="txGeneric" type="txGeneric"/>
+
+  <xs:element name="txLandMobile" type="txLandMobile"/>
+
+  <xs:element name="txLpaux" type="txLpaux"/>
+
+  <xs:element name="txMicrowave" type="txMicrowave"/>
+
+  <xs:element name="txTv" type="txTv"/>
+
+  <xs:element name="txWsd" type="txWsd"/>
+
+  <xs:element name="whitespaceFrequency" type="whitespaceFrequency"/>
+
+  <xs:element name="whitespaceQuery" type="whitespaceQuery"/>
+
+  <xs:element name="whitespaceRecord" type="whitespaceRecord"/>
+
+  <xs:element name="whitespaceRegistration" type="whitespaceRegistration"/>
+
+  <xs:element name="whitespaceResponse" type="whitespaceResponse"/>
+
+  <xs:element name="wirelessService" type="wirelessService"/>
+
+  <xs:complexType name="address">
+    <xs:sequence/>
+    <xs:attribute name="address" type="xs:string"/>
+    <xs:attribute name="city" type="xs:string" use="required"/>
+    <xs:attribute name="county" type="xs:string"/>
+    <xs:attribute name="state" type="xs:string" use="required"/>
+    <xs:attribute name="postalCode" type="xs:string"/>
+    <xs:attribute name="country" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="antenna">
+    <xs:sequence>
+      <xs:element name="HH" type="xs:string"/>
+      <xs:element name="HV" type="xs:string" minOccurs="0"/>
+      <xs:element name="VV" type="xs:string" minOccurs="0"/>
+      <xs:element name="VH" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="id" type="xs:long" use="required"/>
+    <xs:attribute name="manufacturer" type="xs:string" use="required"/>
+    <xs:attribute name="model" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="comment" type="xs:string"/>
+    <xs:attribute name="lowBandGain" type="xs:double"/>
+    <xs:attribute name="midBandGain" type="xs:double"/>
+    <xs:attribute name="highBandGain" type="xs:double"/>
+    <xs:attribute name="frequencyMin" type="xs:double"/>
+    <xs:attribute name="frequencyMax" type="xs:double"/>
+    <xs:attribute name="azimuthBeamWidth" type="xs:double"/>
+    <xs:attribute name="elevationBeamWidth" type="xs:double"/>
+    <xs:attribute name="vswr" type="xs:double"/>
+    <xs:attribute name="frontToBack" type="xs:double"/>
+    <xs:attribute name="electricalDowntilt" type="xs:double"/>
+    <xs:attribute name="dateData" type="xs:dateTime"/>
+  </xs:complexType>
+
+  <xs:complexType name="channel">
+    <xs:sequence/>
+    <xs:attribute name="id" type="xs:long" use="required"/>
+    <xs:attribute name="allocation" type="xs:string" use="required"/>
+    <xs:attribute name="channel" type="xs:double" use="required"/>
+    <xs:attribute name="frequencyMin" type="xs:double" use="required"/>
+    <xs:attribute name="frequencyMax" type="xs:double" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="contact">
+    <xs:sequence>
+      <xs:element ref="address" minOccurs="0"/>
+      <xs:element name="vCard" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="email" type="xs:string" use="required"/>
+    <xs:attribute name="firstName" type="xs:string"/>
+    <xs:attribute name="lastName" type="xs:string"/>
+    <xs:attribute name="title" type="xs:string"/>
+    <xs:attribute name="organization" type="xs:string"/>
+    <xs:attribute name="phone" type="xs:string"/>
+    <xs:attribute name="fax" type="xs:string"/>
+    <xs:attribute name="cell" type="xs:string"/>
+    <xs:attribute name="contactType" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="coordinate">
+    <xs:sequence/>
+    <xs:attribute name="latitude" type="xs:double" use="required"/>
+    <xs:attribute name="longitude" type="xs:double" use="required"/>
+    <xs:attribute name="accuracy" type="xs:double" use="required"/>
+    <xs:attribute name="altitude" type="xs:double"/>
+    <xs:attribute name="altitudeAccuracy" type="xs:double"/>
+    <xs:attribute name="heading" type="xs:double"/>
+    <xs:attribute name="speed" type="xs:double"/>
+    <xs:attribute name="domTimeStamp" type="xs:long"/>
+    <xs:attribute name="datum" type="enumWsifDatum" use="required"/>
+    <xs:attribute name="elevationModel" type="xs:string"/>
+    <xs:attribute name="averageTerrain" type="xs:double"/>
+  </xs:complexType>
+
+  <xs:complexType name="credential">
+    <xs:sequence>
+      <xs:element name="clientChallenge" type="xs:string"/>
+      <xs:element name="clientSecurityStatus" type="enumWsifClientSecurityStatus"/>
+    </xs:sequence>
+    <xs:attribute name="securityStrategy" type="enumSecurityStrategy" use="required"/>
+    <xs:attribute name="securityVersion" type="xs:double" use="required"/>
+    <xs:attribute name="keyAlgorithm" type="xs:string" use="required"/>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+    <xs:attribute name="consumerKey" type="xs:string"/>
+    <xs:attribute name="sharedSecret" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="device" abstract="true">
+    <xs:sequence>
+      <xs:element ref="antenna"/>
+      <xs:element ref="channel"/>
+      <xs:element ref="license"/>
+    </xs:sequence>
+    <xs:attribute name="frequency" type="xs:double"/>
+    <xs:attribute name="chWidth" type="xs:double"/>
+    <xs:attribute name="erp" type="xs:double"/>
+    <xs:attribute name="erpMax" type="xs:double"/>
+    <xs:attribute name="digital" type="xs:boolean" use="required"/>
+    <xs:attribute name="passive" type="xs:boolean" use="required"/>
+    <xs:attribute name="deviceId" type="xs:string"/>
+    <xs:attribute name="deviceSn" type="xs:string"/>
+    <xs:attribute name="deviceType" type="xs:string"/>
+    <xs:attribute name="manufacturer" type="xs:string"/>
+    <xs:attribute name="model" type="xs:string"/>
+    <xs:attribute name="name" type="xs:string"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="digitalModRate" type="xs:double"/>
+    <xs:attribute name="digitalModType" type="xs:string"/>
+    <xs:attribute name="equipmentClass" type="xs:string"/>
+    <xs:attribute name="ea" type="xs:string"/>
+    <xs:attribute name="equipmentRuleNum" type="xs:string"/>
+    <xs:attribute name="emissionCode" type="xs:string"/>
+    <xs:attribute name="wirelessServiceType" type="enumWsifWirelessServiceType"/>
+    <xs:attribute name="groupId" type="xs:string"/>
+    <xs:attribute name="subGroupId" type="xs:string"/>
+    <xs:attribute name="antennaRotation" type="xs:double"/>
+    <xs:attribute name="antennaHag" type="xs:double" use="required"/>
+    <xs:attribute name="antennaHaat" type="xs:double"/>
+    <xs:attribute name="antennaRcAmsl" type="xs:double"/>
+  </xs:complexType>
+
+  <xs:complexType name="license">
+    <xs:sequence/>
+    <xs:attribute name="callSign" type="xs:string" use="required"/>
+    <xs:attribute name="licenseeName" type="xs:string"/>
+    <xs:attribute name="dateGrant" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateExpire" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateLastUpdated" type="xs:dateTime" use="required"/>
+    <xs:attribute name="active" type="xs:boolean" use="required"/>
+    <xs:attribute name="dataSource" type="enumWsifDataSource"/>
+    <xs:attribute name="wirelessServiceType" type="enumWsifWirelessServiceType" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="rxGeneric">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+        <xs:attribute name="sensitivity" type="xs:double"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="rxLpaux">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+        <xs:attribute name="sensitivity" type="xs:double"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="txGeneric">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="txLandMobile">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+        <xs:attribute name="countMobileUnits" type="xs:int"/>
+        <xs:attribute name="radiusOfOperation" type="xs:long"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="txLpaux">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="txMicrowave">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+        <xs:attribute name="broadcastCallSign" type="xs:string"/>
+        <xs:attribute name="pathTypeDescription" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="txTv">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+        <xs:attribute name="govtFacilityId" type="xs:int"/>
+        <xs:attribute name="networkAffiliation" type="xs:string"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="txWsd">
+    <xs:complexContent>
+      <xs:extension base="device">
+        <xs:sequence/>
+        <xs:attribute name="desiredChannels" type="xs:string"/>
+        <xs:attribute name="desiredFrequency" type="xs:double"/>
+        <xs:attribute name="wsdMode" type="enumWsifWsdMode" use="required"/>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+
+  <xs:complexType name="geometry">
+    <xs:sequence>
+      <xs:element name="envelope" type="xs:string"/>
+      <xs:element name="geometry" type="xs:string"/>
+      <xs:element name="polygon" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="location">
+    <xs:sequence>
+      <xs:element ref="address" minOccurs="0"/>
+      <xs:element ref="coordinate" minOccurs="0"/>
+      <xs:element name="geometry" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="geocode" type="enumWsifGeocode" use="required"/>
+    <xs:attribute name="locationType" type="xs:string"/>
+    <xs:attribute name="timeZone" type="xs:string"/>
+  </xs:complexType>
+
+  <xs:complexType name="schedule">
+    <xs:sequence>
+      <xs:element name="iCalendar" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="dtstart" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dtend" type="xs:dateTime" use="required"/>
+    <xs:attribute name="rrule" type="xs:string" use="required"/>
+    <xs:attribute name="timeZone" type="xs:string" use="required"/>
+    <xs:attribute name="uid" type="xs:string" use="required"/>
+    <xs:attribute name="categories" type="xs:string"/>
+    <xs:attribute name="created" type="xs:dateTime" use="required"/>
+    <xs:attribute name="classification" type="enumWsifScheduleClassification"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="organizer" type="xs:string"/>
+    <xs:attribute name="priority" type="xs:int"/>
+    <xs:attribute name="summary" type="xs:string"/>
+    <xs:attribute name="transparency" type="enumWsifScheduleTransparency"/>
+    <xs:attribute name="allDayEvent" type="xs:boolean" use="required"/>
+    <xs:attribute name="dateExpiration" type="xs:dateTime"/>
+  </xs:complexType>
+
+  <xs:complexType name="station">
+    <xs:sequence>
+      <xs:element ref="location"/>
+      <xs:element ref="schedule"/>
+      <xs:element name="contactList" type="contact" minOccurs="0" maxOccurs="unbounded"/>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element ref="device"/>
+        <xs:element ref="rxGeneric"/>
+        <xs:element ref="rxLpaux"/>
+        <xs:element ref="txGeneric"/>
+        <xs:element ref="txLandMobile"/>
+        <xs:element ref="txLpaux"/>
+        <xs:element ref="txMicrowave"/>
+        <xs:element ref="txTv"/>
+        <xs:element ref="txWsd"/>
+      </xs:choice>
+    </xs:sequence>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="stationClass" type="enumWsifStationClass" use="required"/>
+    <xs:attribute name="primary" type="xs:boolean" use="required"/>
+    <xs:attribute name="stationType" type="xs:string" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="whitespaceRegistration">
+    <xs:sequence>
+      <xs:element name="channelList" type="channel" maxOccurs="unbounded"/>
+      <xs:element ref="schedule"/>
+      <xs:element ref="device" minOccurs="0"/>
+      <xs:element ref="station"/>
+      <xs:element ref="geometry"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="xs:string" use="required"/>
+    <xs:attribute name="active" type="xs:boolean" use="required"/>
+    <xs:attribute name="adjacent" type="xs:boolean" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="whitespaceType" type="enumWsifWhitespaceType" use="required"/>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateEffective" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateExpiration" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateLastUpdated" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="wirelessService">
+    <xs:sequence>
+      <xs:element name="wirelessServiceType" type="enumWsifWirelessServiceType"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+      <xs:element ref="license"/>
+      <xs:element name="registrar" type="enumRegistrar"/>
+      <xs:element name="contactList" type="contact" maxOccurs="unbounded"/>
+      <xs:element name="stationList" type="station" maxOccurs="unbounded"/>
+      <xs:element name="whitespaceRegistrationList" type="whitespaceRegistration" minOccurs="0" maxOccurs="unbounded"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="xs:string" use="required"/>
+    <xs:attribute name="name" type="xs:string" use="required"/>
+    <xs:attribute name="description" type="xs:string"/>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateEffective" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateExpiration" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateLastUpdated" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="whitespaceFrequency">
+    <xs:sequence>
+      <xs:element ref="channel"/>
+      <xs:element ref="location"/>
+      <xs:element ref="schedule"/>
+      <xs:element name="wsdModeList" type="enumWsifWsdMode" maxOccurs="unbounded"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="xs:string" use="required"/>
+    <xs:attribute name="maxEirp" type="xs:double" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="whitespaceQuery">
+    <xs:sequence>
+      <xs:element ref="txWsd"/>
+      <xs:element ref="location" minOccurs="0"/>
+      <xs:element ref="schedule" minOccurs="0"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="xs:string" use="required"/>
+    <xs:attribute name="protocolVersion" type="xs:float" use="required"/>
+    <xs:attribute name="messageType" type="enumWsifQueryType" use="required"/>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+  </xs:complexType>
+
+  <xs:complexType name="whitespaceRecord">
+    <xs:sequence>
+      <xs:element name="registrar" type="xs:anyType" minOccurs="0"/>
+      <xs:element ref="wirelessService" minOccurs="0"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="xs:string"/>
+    <xs:attribute name="protocolVersion" type="xs:float" use="required"/>
+    <xs:attribute name="dateRegistration" type="xs:dateTime"/>
+  </xs:complexType>
+
+  <xs:complexType name="whitespaceResponse">
+    <xs:sequence>
+      <xs:element ref="location"/>
+      <xs:element name="whitespaceFrequencyList" type="whitespaceFrequency" maxOccurs="unbounded"/>
+      <xs:element name="extension" type="xs:string" minOccurs="0"/>
+    </xs:sequence>
+    <xs:attribute name="uuid" type="xs:string" use="required"/>
+    <xs:attribute name="protocolVersion" type="xs:float" use="required"/>
+    <xs:attribute name="messageType" type="enumWsifResponseType" use="required"/>
+    <xs:attribute name="dateCreated" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateEffective" type="xs:dateTime" use="required"/>
+    <xs:attribute name="dateExpiration" type="xs:dateTime" use="required"/>
+    <xs:attribute name="statusIndicator" type="xs:int" use="required"/>
+  </xs:complexType>
+
+  <xs:simpleType name="enumWsifDatum">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="WGS_84"/>
+      <xs:enumeration value="NAD_83"/>
+      <xs:enumeration value="NAD_27"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumSecurityStrategy">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OAUTH_1"/>
+      <xs:enumeration value="OAUTH_2"/>
+      <xs:enumeration value="OPENID"/>
+      <xs:enumeration value="SAML"/>
+      <xs:enumeration value="SSO"/>
+      <xs:enumeration value="X509"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumKeyGeneratorAlgorithm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AES"/>
+      <xs:enumeration value="ARCFOUR"/>
+      <xs:enumeration value="BLOWFISH"/>
+      <xs:enumeration value="DES"/>
+      <xs:enumeration value="DESEDE"/>
+      <xs:enumeration value="HmacMD5"/>
+      <xs:enumeration value="HmacSHA1"/>
+      <xs:enumeration value="HmacSHA256"/>
+      <xs:enumeration value="HmacSHA384"/>
+      <xs:enumeration value="HmacSHA512"/>
+      <xs:enumeration value="RC2"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumKeyPairGeneratorAlgorithm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="DSA"/>
+      <xs:enumeration value="RSA"/>
+      <xs:enumeration value="EC"/>
+      <xs:enumeration value="DiffieHellman"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumMacAlgorithm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HmacMD5"/>
+      <xs:enumeration value="HmacSHA1"/>
+      <xs:enumeration value="HmacSHA256"/>
+      <xs:enumeration value="HmacSHA384"/>
+      <xs:enumeration value="HmacSHA512"/>
+      <xs:enumeration value="PBEWithHmacMD5"/>
+      <xs:enumeration value="PBEWithHmacSHA1"/>
+      <xs:enumeration value="PBEWithHmacSHA256"/>
+      <xs:enumeration value="PBEWithHmacSHA384"/>
+      <xs:enumeration value="PBEWithHmacSHA512"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumSecureRandomAlgorithm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="SHA1PRNG"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumSignatureAlgorithm">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONEwithRSA"/>
+      <xs:enumeration value="MD2withRSA"/>
+      <xs:enumeration value="MD5withRSA"/>
+      <xs:enumeration value="SHA1withRSA"/>
+      <xs:enumeration value="SHA256withRSA"/>
+      <xs:enumeration value="SHA384withRSA"/>
+      <xs:enumeration value="SHA512withRSA"/>
+      <xs:enumeration value="NONEwithDSA"/>
+      <xs:enumeration value="SHA1withDSA"/>
+      <xs:enumeration value="NONEwithECDSA"/>
+      <xs:enumeration value="SHA1withECDSA"/>
+      <xs:enumeration value="SHA256withECDSA"/>
+      <xs:enumeration value="SHA384withECDSA"/>
+      <xs:enumeration value="SHA512withECDSA"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumOAuthSignatureMethod">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HMAC_SHA1"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifClientSecurityStatus">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KEY_VALIDATED"/>
+      <xs:enumeration value="KEY_NOT_VALIDATED"/>
+      <xs:enumeration value="WILL_EXPIRE_SOON"/>
+      <xs:enumeration value="NEW_SECRET_ASSIGNED"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifWirelessServiceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KEYBRIDGE_WIRELESSSERVICETYPE_DEMO"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_ASTR"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_ORS"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_URBAN"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_LPAUX"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV_RX"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV_AUX"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_TV_RX_MVPD"/>
+      <xs:enumeration value="GOV_FCC_WIRELESSSERVICETYPE_WSD"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DD"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DT"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TV"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DC"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_CA"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_LD"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TX"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_LP_D"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_LP_A"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TX_D"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TX_A"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DS"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_DX"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TS"/>
+      <xs:enumeration value="GOV_FCC_CDBS_WIRELESSSERVICETYPE_TB"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_YK"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_IK"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_IG"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_YG"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_PW"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_YW"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_LV"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_LP"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_RP"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_AB"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_AI"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_AS"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TB"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TI"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TP"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TS"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_TT"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_CD"/>
+      <xs:enumeration value="GOV_FCC_ULS_WIRELESSSERVICETYPE_UM"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TVTV"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_DT"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV_LP"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV_LP_D"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV_LP_A"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV_TX"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV_TX_D"/>
+      <xs:enumeration value="CA_GC_IC_BROADCAST_WIRELESSSERVICETYPE_TV_TX_A"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TVTV"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_DT"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_LP"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_LP_D"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_LP_A"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_TX"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_TX_D"/>
+      <xs:enumeration value="MX_GOB_COFETEL_BROADCAST_WIRELESSSERVICETYPE_TV_TX_A"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifDataSource">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KEYBRIDGE"/>
+      <xs:enumeration value="ENUMERATED"/>
+      <xs:enumeration value="CDBS"/>
+      <xs:enumeration value="COALS"/>
+      <xs:enumeration value="ELS"/>
+      <xs:enumeration value="IBFS"/>
+      <xs:enumeration value="LICENSE"/>
+      <xs:enumeration value="ULS"/>
+      <xs:enumeration value="BDBS"/>
+      <xs:enumeration value="COFETEL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifWsdMode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PSEUDO"/>
+      <xs:enumeration value="LPAUX"/>
+      <xs:enumeration value="LPAUX_RESERVED"/>
+      <xs:enumeration value="CLIENT"/>
+      <xs:enumeration value="ACCESS_POINT"/>
+      <xs:enumeration value="ACCESS_POINT_FIXED"/>
+      <xs:enumeration value="FORBIDDEN"/>
+      <xs:enumeration value="FORBIDDEN_BY_RULE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifGeocode">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NO"/>
+      <xs:enumeration value="GC"/>
+      <xs:enumeration value="RG"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifQuotaType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CALENDAR"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifScheduleTransparency">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TRANSPARENT"/>
+      <xs:enumeration value="OPAQUE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifScheduleClassification">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="PUBLIC"/>
+      <xs:enumeration value="PRIVATE"/>
+      <xs:enumeration value="CONFIDENTIAL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifStationClass">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TX"/>
+      <xs:enumeration value="RX"/>
+      <xs:enumeration value="TXRX"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifWhitespaceType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="KEYBRIDGE_DEMO"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_ASTR"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_ORS"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_URBAN"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_LMRS"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_LPAUX"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_RX"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_DD"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_RX_AUX"/>
+      <xs:enumeration value="GOV_FCC_WHITESPACETYPE_TV_RX_MVPD"/>
+      <xs:enumeration value="CA_GC_IC_WHITESPACETYPE_TV"/>
+      <xs:enumeration value="CA_GC_IC_WHITESPACETYPE_TV_RX"/>
+      <xs:enumeration value="MX_GOV_COFETEL_WHITESPACETYPE_TV"/>
+      <xs:enumeration value="MX_GOV_COFETEL_WHITESPACETYPE_TV_RX"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumRegistrar">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="FCC"/>
+      <xs:enumeration value="INDUSTRYCANADA"/>
+      <xs:enumeration value="COFETEL"/>
+      <xs:enumeration value="AIRITY"/>
+      <xs:enumeration value="COMSEARCH"/>
+      <xs:enumeration value="GOOGLE"/>
+      <xs:enumeration value="KEYBRIDGE"/>
+      <xs:enumeration value="LSTELCOM"/>
+      <xs:enumeration value="MICROSOFT"/>
+      <xs:enumeration value="RADIOSOFT"/>
+      <xs:enumeration value="NEUSTAR"/>
+      <xs:enumeration value="SPECTRUMBRIDGE"/>
+      <xs:enumeration value="TELCORDIA"/>
+      <xs:enumeration value="TEST_AIRITY"/>
+      <xs:enumeration value="TEST_COMSEARCH"/>
+      <xs:enumeration value="TEST_GOOGLE"/>
+      <xs:enumeration value="TEST_KEYBRIDGE"/>
+      <xs:enumeration value="TEST_LSTELCOM"/>
+      <xs:enumeration value="TEST_MICROSOFT"/>
+      <xs:enumeration value="TEST_RADIOSOFT"/>
+      <xs:enumeration value="TEST_NEUSTAR"/>
+      <xs:enumeration value="TEST_SPECTRUMBRIDGE"/>
+      <xs:enumeration value="TEST_TELCORDIA"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifQueryType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="REQUEST"/>
+      <xs:enumeration value="INFORMATION"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifResponseType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AUTHORIZARION"/>
+      <xs:enumeration value="INFORMATION"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifAntennaPolarization">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="HH"/>
+      <xs:enumeration value="HV"/>
+      <xs:enumeration value="VH"/>
+      <xs:enumeration value="VV"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifDeviceClass">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="RxGeneric"/>
+      <xs:enumeration value="RxLpaux"/>
+      <xs:enumeration value="TxGeneric"/>
+      <xs:enumeration value="TxLandMobile"/>
+      <xs:enumeration value="TxLpaux"/>
+      <xs:enumeration value="TxMicrowave"/>
+      <xs:enumeration value="TxTv"/>
+      <xs:enumeration value="TxWsd"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifLicenseActionResult">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NONE"/>
+      <xs:enumeration value="SUCCESS"/>
+      <xs:enumeration value="FAIL"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifLicenseActionSeverity">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="INFO"/>
+      <xs:enumeration value="WARN"/>
+      <xs:enumeration value="ERROR"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifLicenseActionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ACTIVATE"/>
+      <xs:enumeration value="BUILD"/>
+      <xs:enumeration value="CREATE"/>
+      <xs:enumeration value="DELETE"/>
+      <xs:enumeration value="EDIT"/>
+      <xs:enumeration value="GEOCODE"/>
+      <xs:enumeration value="IMPORT"/>
+      <xs:enumeration value="UPDATE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumWsifWsdSeparationDistance">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LT3"/>
+      <xs:enumeration value="GT3LT10"/>
+      <xs:enumeration value="GT10LT30"/>
+      <xs:enumeration value="GT30LT50"/>
+      <xs:enumeration value="GT50LT75"/>
+      <xs:enumeration value="GT75LT100"/>
+      <xs:enumeration value="GT100LT150"/>
+      <xs:enumeration value="GT150LT200"/>
+      <xs:enumeration value="GT200LT250"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumChannelUS">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="VHF2"/>
+      <xs:enumeration value="VHF3"/>
+      <xs:enumeration value="VHF4"/>
+      <xs:enumeration value="VHF5"/>
+      <xs:enumeration value="VHF6"/>
+      <xs:enumeration value="VHF7"/>
+      <xs:enumeration value="VHF8"/>
+      <xs:enumeration value="VHF9"/>
+      <xs:enumeration value="VHF10"/>
+      <xs:enumeration value="VHF11"/>
+      <xs:enumeration value="VHF12"/>
+      <xs:enumeration value="VHF13"/>
+      <xs:enumeration value="UHF14"/>
+      <xs:enumeration value="UHF15"/>
+      <xs:enumeration value="UHF16"/>
+      <xs:enumeration value="UHF17"/>
+      <xs:enumeration value="UHF18"/>
+      <xs:enumeration value="UHF19"/>
+      <xs:enumeration value="UHF20"/>
+      <xs:enumeration value="UHF21"/>
+      <xs:enumeration value="UHF22"/>
+      <xs:enumeration value="UHF23"/>
+      <xs:enumeration value="UHF24"/>
+      <xs:enumeration value="UHF25"/>
+      <xs:enumeration value="UHF26"/>
+      <xs:enumeration value="UHF27"/>
+      <xs:enumeration value="UHF28"/>
+      <xs:enumeration value="UHF29"/>
+      <xs:enumeration value="UHF30"/>
+      <xs:enumeration value="UHF31"/>
+      <xs:enumeration value="UHF32"/>
+      <xs:enumeration value="UHF33"/>
+      <xs:enumeration value="UHF34"/>
+      <xs:enumeration value="UHF35"/>
+      <xs:enumeration value="UHF36"/>
+      <xs:enumeration value="UHF37"/>
+      <xs:enumeration value="UHF38"/>
+      <xs:enumeration value="UHF39"/>
+      <xs:enumeration value="UHF40"/>
+      <xs:enumeration value="UHF41"/>
+      <xs:enumeration value="UHF42"/>
+      <xs:enumeration value="UHF43"/>
+      <xs:enumeration value="UHF44"/>
+      <xs:enumeration value="UHF45"/>
+      <xs:enumeration value="UHF46"/>
+      <xs:enumeration value="UHF47"/>
+      <xs:enumeration value="UHF48"/>
+      <xs:enumeration value="UHF49"/>
+      <xs:enumeration value="UHF50"/>
+      <xs:enumeration value="UHF51"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumContactType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ADMINISTRATIVE"/>
+      <xs:enumeration value="CERTIFIER"/>
+      <xs:enumeration value="COORDINATOR"/>
+      <xs:enumeration value="EXECUTIVE"/>
+      <xs:enumeration value="GENERAL"/>
+      <xs:enumeration value="LICENSEE"/>
+      <xs:enumeration value="TECHNICAL"/>
+      <xs:enumeration value="WEB_CUSTOMER"/>
+      <xs:enumeration value="WEB_PORTAL"/>
+      <xs:enumeration value="WEB_ENTERPRISE"/>
+      <xs:enumeration value="WEB_ANON"/>
+      <xs:enumeration value="ENTERPRISE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumCountry">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="AFGHANISTAN"/>
+      <xs:enumeration value="ALBANIA"/>
+      <xs:enumeration value="ALGERIA"/>
+      <xs:enumeration value="AMERICAN_SAMOA"/>
+      <xs:enumeration value="ANDORRA"/>
+      <xs:enumeration value="ANGOLA"/>
+      <xs:enumeration value="ANGUILLA"/>
+      <xs:enumeration value="ANTARCTICA"/>
+      <xs:enumeration value="ANTIGUA_AND_BARBUDA"/>
+      <xs:enumeration value="ARGENTINA"/>
+      <xs:enumeration value="ARMENIA"/>
+      <xs:enumeration value="ARUBA"/>
+      <xs:enumeration value="AUSTRALIA"/>
+      <xs:enumeration value="AUSTRIA"/>
+      <xs:enumeration value="AZERBAIJAN"/>
+      <xs:enumeration value="BAHAMAS"/>
+      <xs:enumeration value="BAHRAIN"/>
+      <xs:enumeration value="BANGLADESH"/>
+      <xs:enumeration value="BARBADOS"/>
+      <xs:enumeration value="BELARUS"/>
+      <xs:enumeration value="BELGIUM"/>
+      <xs:enumeration value="BELIZE"/>
+      <xs:enumeration value="BENIN"/>
+      <xs:enumeration value="BERMUDA"/>
+      <xs:enumeration value="BHUTAN"/>
+      <xs:enumeration value="BOLIVIA"/>
+      <xs:enumeration value="BOSNIA_AND_HERZEGOVINA"/>
+      <xs:enumeration value="BOTSWANA"/>
+      <xs:enumeration value="BOUVET_ISLAND"/>
+      <xs:enumeration value="BRAZIL"/>
+      <xs:enumeration value="BRITISH_INDIAN_OCEAN_TERRITORY"/>
+      <xs:enumeration value="BRUNEI_DARUSSALAM"/>
+      <xs:enumeration value="BULGARIA"/>
+      <xs:enumeration value="BURKINA_FASO"/>
+      <xs:enumeration value="BURUNDI"/>
+      <xs:enumeration value="CAMBODIA"/>
+      <xs:enumeration value="CAMEROON"/>
+      <xs:enumeration value="CANADA"/>
+      <xs:enumeration value="CAPE_VERDE"/>
+      <xs:enumeration value="CAYMAN_ISLANDS"/>
+      <xs:enumeration value="CENTRAL_AFRICAN_REPUBLIC"/>
+      <xs:enumeration value="CHAD"/>
+      <xs:enumeration value="CHILE"/>
+      <xs:enumeration value="CHINA"/>
+      <xs:enumeration value="CHRISTMAS_ISLAND"/>
+      <xs:enumeration value="COCOS_KEELING_ISLANDS"/>
+      <xs:enumeration value="COLOMBIA"/>
+      <xs:enumeration value="COMOROS"/>
+      <xs:enumeration value="CONGO"/>
+      <xs:enumeration value="CONGO_THE_DEMOCRATIC_REPUBLIC_OF_THE"/>
+      <xs:enumeration value="COOK_ISLANDS"/>
+      <xs:enumeration value="COSTA_RICA"/>
+      <xs:enumeration value="COTE_DIVOIRE"/>
+      <xs:enumeration value="CROATIA"/>
+      <xs:enumeration value="CUBA"/>
+      <xs:enumeration value="CYPRUS"/>
+      <xs:enumeration value="CZECH_REPUBLIC"/>
+      <xs:enumeration value="DENMARK"/>
+      <xs:enumeration value="DJIBOUTI"/>
+      <xs:enumeration value="DOMINICA"/>
+      <xs:enumeration value="DOMINICAN_REPUBLIC"/>
+      <xs:enumeration value="ECUADOR"/>
+      <xs:enumeration value="EGYPT"/>
+      <xs:enumeration value="EL_SALVADOR"/>
+      <xs:enumeration value="EQUATORIAL_GUINEA"/>
+      <xs:enumeration value="ERITREA"/>
+      <xs:enumeration value="ESTONIA"/>
+      <xs:enumeration value="ETHIOPIA"/>
+      <xs:enumeration value="FALKLAND_ISLANDS"/>
+      <xs:enumeration value="FAROE_ISLANDS"/>
+      <xs:enumeration value="FIJI"/>
+      <xs:enumeration value="FINLAND"/>
+      <xs:enumeration value="FRANCE"/>
+      <xs:enumeration value="FRENCH_GUIANA"/>
+      <xs:enumeration value="FRENCH_POLYNESIA"/>
+      <xs:enumeration value="FRENCH_SOUTHERN_TERRITORIES"/>
+      <xs:enumeration value="GABON"/>
+      <xs:enumeration value="GAMBIA"/>
+      <xs:enumeration value="GEORGIA"/>
+      <xs:enumeration value="GERMANY"/>
+      <xs:enumeration value="GHANA"/>
+      <xs:enumeration value="GIBRALTAR"/>
+      <xs:enumeration value="GREECE"/>
+      <xs:enumeration value="GREENLAND"/>
+      <xs:enumeration value="GRENADA"/>
+      <xs:enumeration value="GUADELOUPE"/>
+      <xs:enumeration value="GUAM"/>
+      <xs:enumeration value="GUATEMALA"/>
+      <xs:enumeration value="GUINEA_BISSAU"/>
+      <xs:enumeration value="GUINEA"/>
+      <xs:enumeration value="GUYANA"/>
+      <xs:enumeration value="HAITI"/>
+      <xs:enumeration value="HEARD_ISLAND_AND_MCDONALD_ISLANDS"/>
+      <xs:enumeration value="HOLY_SEE_VATICAN_CITY_STATE"/>
+      <xs:enumeration value="HONDURAS"/>
+      <xs:enumeration value="HONG_KONG"/>
+      <xs:enumeration value="HUNGARY"/>
+      <xs:enumeration value="ICELAND"/>
+      <xs:enumeration value="INDIA"/>
+      <xs:enumeration value="INDONESIA"/>
+      <xs:enumeration value="IRAN"/>
+      <xs:enumeration value="IRAQ"/>
+      <xs:enumeration value="IRELAND"/>
+      <xs:enumeration value="ISRAEL"/>
+      <xs:enumeration value="ITALY"/>
+      <xs:enumeration value="JAMAICA"/>
+      <xs:enumeration value="JAPAN"/>
+      <xs:enumeration value="JORDAN"/>
+      <xs:enumeration value="KAZAKHSTAN"/>
+      <xs:enumeration value="KENYA"/>
+      <xs:enumeration value="KIRIBATI"/>
+      <xs:enumeration value="KOREA"/>
+      <xs:enumeration value="KOREA_NORTH"/>
+      <xs:enumeration value="KUWAIT"/>
+      <xs:enumeration value="KYRGYZSTAN"/>
+      <xs:enumeration value="LAO_PEOPLES_DEMOCRATIC_REPUBLIC"/>
+      <xs:enumeration value="LATVIA"/>
+      <xs:enumeration value="LEBANON"/>
+      <xs:enumeration value="LESOTHO"/>
+      <xs:enumeration value="LIBERIA"/>
+      <xs:enumeration value="LIBYAN_ARAB_JAMAHIRIYA"/>
+      <xs:enumeration value="LIECHTENSTEIN"/>
+      <xs:enumeration value="LITHUANIA"/>
+      <xs:enumeration value="LUXEMBOURG"/>
+      <xs:enumeration value="MACAO"/>
+      <xs:enumeration value="MACEDONIA"/>
+      <xs:enumeration value="MADAGASCAR"/>
+      <xs:enumeration value="MALAWI"/>
+      <xs:enumeration value="MALAYSIA"/>
+      <xs:enumeration value="MALDIVES"/>
+      <xs:enumeration value="MALI"/>
+      <xs:enumeration value="MALTA"/>
+      <xs:enumeration value="MARSHALL_ISLANDS"/>
+      <xs:enumeration value="MARTINIQUE"/>
+      <xs:enumeration value="MAURITANIA"/>
+      <xs:enumeration value="MAURITIUS"/>
+      <xs:enumeration value="MAYOTTE"/>
+      <xs:enumeration value="MEXICO"/>
+      <xs:enumeration value="MICRONESIA"/>
+      <xs:enumeration value="MOLDOVA_REPUBLIC_OF"/>
+      <xs:enumeration value="MONACO"/>
+      <xs:enumeration value="MONGOLIA"/>
+      <xs:enumeration value="MONTSERRAT"/>
+      <xs:enumeration value="MOROCCO"/>
+      <xs:enumeration value="MOZAMBIQUE"/>
+      <xs:enumeration value="MYANMAR"/>
+      <xs:enumeration value="NAMIBIA"/>
+      <xs:enumeration value="NAURU"/>
+      <xs:enumeration value="NEPAL"/>
+      <xs:enumeration value="NETHERLANDS_ANTILLES"/>
+      <xs:enumeration value="NETHERLANDS"/>
+      <xs:enumeration value="NEW_CALEDONIA"/>
+      <xs:enumeration value="NEW_ZEALAND"/>
+      <xs:enumeration value="NICARAGUA"/>
+      <xs:enumeration value="NIGERIA"/>
+      <xs:enumeration value="NIGER"/>
+      <xs:enumeration value="NIUE"/>
+      <xs:enumeration value="NORFOLK_ISLAND"/>
+      <xs:enumeration value="NORTHERN_MARIANA_ISLANDS"/>
+      <xs:enumeration value="NORWAY"/>
+      <xs:enumeration value="OMAN"/>
+      <xs:enumeration value="PAKISTAN"/>
+      <xs:enumeration value="PALAU"/>
+      <xs:enumeration value="PALESTINIAN_TERRITORY"/>
+      <xs:enumeration value="PANAMA"/>
+      <xs:enumeration value="PAPUA_NEW_GUINEA"/>
+      <xs:enumeration value="PARAGUAY"/>
+      <xs:enumeration value="PERU"/>
+      <xs:enumeration value="PHILIPPINES"/>
+      <xs:enumeration value="PITCAIRN"/>
+      <xs:enumeration value="POLAND"/>
+      <xs:enumeration value="PORTUGAL"/>
+      <xs:enumeration value="PUERTO_RICO"/>
+      <xs:enumeration value="QATAR"/>
+      <xs:enumeration value="REUNION"/>
+      <xs:enumeration value="ROMANIA"/>
+      <xs:enumeration value="RUSSIAN_FEDERATION"/>
+      <xs:enumeration value="RWANDA"/>
+      <xs:enumeration value="SAINT_HELENA"/>
+      <xs:enumeration value="SAINT_KITTS_AND_NEVIS"/>
+      <xs:enumeration value="SAINT_LUCIA"/>
+      <xs:enumeration value="SAINT_PIERRE_AND_MIQUELON"/>
+      <xs:enumeration value="SAINT_VINCENT_AND_THE_GRENADINES"/>
+      <xs:enumeration value="SAMOA"/>
+      <xs:enumeration value="SAN_MARINO"/>
+      <xs:enumeration value="SAO_TOME_AND_PRINCIPE"/>
+      <xs:enumeration value="SAUDI_ARABIA"/>
+      <xs:enumeration value="SENEGAL"/>
+      <xs:enumeration value="SERBIA_AND_MONTENEGRO"/>
+      <xs:enumeration value="SEYCHELLES"/>
+      <xs:enumeration value="SIERRA_LEONE"/>
+      <xs:enumeration value="SINGAPORE"/>
+      <xs:enumeration value="SLOVAKIA"/>
+      <xs:enumeration value="SLOVENIA"/>
+      <xs:enumeration value="SOLOMON_ISLANDS"/>
+      <xs:enumeration value="SOMALIA"/>
+      <xs:enumeration value="SOUTH_AFRICA"/>
+      <xs:enumeration value="SOUTH_GEORGIA_AND_THE_SOUTH_SANDWICH_ISLANDS"/>
+      <xs:enumeration value="SPAIN"/>
+      <xs:enumeration value="SRI_LANKA"/>
+      <xs:enumeration value="SUDAN"/>
+      <xs:enumeration value="SURINAME"/>
+      <xs:enumeration value="SVALBARD_AND_JAN_MAYEN"/>
+      <xs:enumeration value="SWAZILAND"/>
+      <xs:enumeration value="SWEDEN"/>
+      <xs:enumeration value="SWITZERLAND"/>
+      <xs:enumeration value="SYRIAN_ARAB_REPUBLIC"/>
+      <xs:enumeration value="TAIWAN_PROVINCE_OF_CHINA"/>
+      <xs:enumeration value="TAJIKISTAN"/>
+      <xs:enumeration value="TANZANIA_UNITED_REPUBLIC_OF"/>
+      <xs:enumeration value="THAILAND"/>
+      <xs:enumeration value="TIMOR_LESTE"/>
+      <xs:enumeration value="TOGO"/>
+      <xs:enumeration value="TOKELAU"/>
+      <xs:enumeration value="TONGA"/>
+      <xs:enumeration value="TRINIDAD_AND_TOBAGO"/>
+      <xs:enumeration value="TUNISIA"/>
+      <xs:enumeration value="TURKEY"/>
+      <xs:enumeration value="TURKMENISTAN"/>
+      <xs:enumeration value="TURKS_AND_CAICOS_ISLANDS"/>
+      <xs:enumeration value="TUVALU"/>
+      <xs:enumeration value="UGANDA"/>
+      <xs:enumeration value="UKRAINE"/>
+      <xs:enumeration value="UNITED_ARAB_EMIRATES"/>
+      <xs:enumeration value="UNITED_KINGDOM"/>
+      <xs:enumeration value="UNITED_STATES_MINOR_OUTLYING_ISLANDS"/>
+      <xs:enumeration value="UNITED_STATES_OF_AMERICA"/>
+      <xs:enumeration value="URUGUAY"/>
+      <xs:enumeration value="UZBEKISTAN"/>
+      <xs:enumeration value="VANUATU"/>
+      <xs:enumeration value="VENEZUELA"/>
+      <xs:enumeration value="VIET_NAM"/>
+      <xs:enumeration value="VIRGIN_ISLANDS_BRITISH"/>
+      <xs:enumeration value="VIRGIN_ISLANDS_US"/>
+      <xs:enumeration value="WALLIS_AND_FUTUNA"/>
+      <xs:enumeration value="WESTERN_SAHARA"/>
+      <xs:enumeration value="YEMEN"/>
+      <xs:enumeration value="ZAMBIA"/>
+      <xs:enumeration value="ZIMBABWE"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumLocationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="administrative"/>
+      <xs:enumeration value="aerodrome"/>
+      <xs:enumeration value="agriculture"/>
+      <xs:enumeration value="airfield"/>
+      <xs:enumeration value="airport"/>
+      <xs:enumeration value="amphitheater"/>
+      <xs:enumeration value="amusement_park"/>
+      <xs:enumeration value="animal_enclosure"/>
+      <xs:enumeration value="aquarium"/>
+      <xs:enumeration value="arcade"/>
+      <xs:enumeration value="archaeological_site"/>
+      <xs:enumeration value="arena"/>
+      <xs:enumeration value="armory"/>
+      <xs:enumeration value="art_center"/>
+      <xs:enumeration value="art_gallery"/>
+      <xs:enumeration value="attraction"/>
+      <xs:enumeration value="auditorium"/>
+      <xs:enumeration value="aviation"/>
+      <xs:enumeration value="bank"/>
+      <xs:enumeration value="barracks"/>
+      <xs:enumeration value="basketball_court"/>
+      <xs:enumeration value="battlefield"/>
+      <xs:enumeration value="beach_resort"/>
+      <xs:enumeration value="bed_and_breakfast"/>
+      <xs:enumeration value="biergarten"/>
+      <xs:enumeration value="boathouse"/>
+      <xs:enumeration value="boatyard"/>
+      <xs:enumeration value="bus_station"/>
+      <xs:enumeration value="business_center"/>
+      <xs:enumeration value="campus"/>
+      <xs:enumeration value="casino"/>
+      <xs:enumeration value="castle"/>
+      <xs:enumeration value="cemetery"/>
+      <xs:enumeration value="chamber_of_commerce"/>
+      <xs:enumeration value="church"/>
+      <xs:enumeration value="cinema"/>
+      <xs:enumeration value="city_hall"/>
+      <xs:enumeration value="club"/>
+      <xs:enumeration value="club_house"/>
+      <xs:enumeration value="college"/>
+      <xs:enumeration value="commercial"/>
+      <xs:enumeration value="concert_venue"/>
+      <xs:enumeration value="conference_center"/>
+      <xs:enumeration value="conservatory"/>
+      <xs:enumeration value="construction_site"/>
+      <xs:enumeration value="control_tower"/>
+      <xs:enumeration value="convention_center"/>
+      <xs:enumeration value="country_club"/>
+      <xs:enumeration value="county_park"/>
+      <xs:enumeration value="courthouse"/>
+      <xs:enumeration value="department_store"/>
+      <xs:enumeration value="embassy"/>
+      <xs:enumeration value="entertainment"/>
+      <xs:enumeration value="fairgrounds"/>
+      <xs:enumeration value="fire_station"/>
+      <xs:enumeration value="firing_range"/>
+      <xs:enumeration value="fort"/>
+      <xs:enumeration value="golf_course"/>
+      <xs:enumeration value="government"/>
+      <xs:enumeration value="government_local"/>
+      <xs:enumeration value="gymnasium"/>
+      <xs:enumeration value="hangar"/>
+      <xs:enumeration value="helipad"/>
+      <xs:enumeration value="hospital"/>
+      <xs:enumeration value="kindergarten"/>
+      <xs:enumeration value="launch_pad"/>
+      <xs:enumeration value="library"/>
+      <xs:enumeration value="marina"/>
+      <xs:enumeration value="market"/>
+      <xs:enumeration value="memorial"/>
+      <xs:enumeration value="military"/>
+      <xs:enumeration value="monument"/>
+      <xs:enumeration value="museum"/>
+      <xs:enumeration value="music"/>
+      <xs:enumeration value="music_hall"/>
+      <xs:enumeration value="music_venue"/>
+      <xs:enumeration value="national_memorial"/>
+      <xs:enumeration value="national_park"/>
+      <xs:enumeration value="naval_base"/>
+      <xs:enumeration value="nightclub"/>
+      <xs:enumeration value="observatory"/>
+      <xs:enumeration value="office"/>
+      <xs:enumeration value="office_park"/>
+      <xs:enumeration value="performing_art_center"/>
+      <xs:enumeration value="place_of_worship"/>
+      <xs:enumeration value="planetarium"/>
+      <xs:enumeration value="police"/>
+      <xs:enumeration value="political"/>
+      <xs:enumeration value="post_office"/>
+      <xs:enumeration value="power_station"/>
+      <xs:enumeration value="power_substation"/>
+      <xs:enumeration value="prison"/>
+      <xs:enumeration value="private_property"/>
+      <xs:enumeration value="protected_area"/>
+      <xs:enumeration value="pub"/>
+      <xs:enumeration value="public_building"/>
+      <xs:enumeration value="public_facility"/>
+      <xs:enumeration value="radio_tower"/>
+      <xs:enumeration value="ranger_station"/>
+      <xs:enumeration value="religious"/>
+      <xs:enumeration value="runway"/>
+      <xs:enumeration value="satellite"/>
+      <xs:enumeration value="satellite_earth_station"/>
+      <xs:enumeration value="science_park"/>
+      <xs:enumeration value="service_center"/>
+      <xs:enumeration value="social_center"/>
+      <xs:enumeration value="social_club"/>
+      <xs:enumeration value="social_facility"/>
+      <xs:enumeration value="special_use"/>
+      <xs:enumeration value="sports_center"/>
+      <xs:enumeration value="stadium"/>
+      <xs:enumeration value="stadium_basketball"/>
+      <xs:enumeration value="stadium_baseball"/>
+      <xs:enumeration value="stadium_football"/>
+      <xs:enumeration value="stadium_soccer"/>
+      <xs:enumeration value="stock_exchange"/>
+      <xs:enumeration value="studio"/>
+      <xs:enumeration value="telecommunication_facility"/>
+      <xs:enumeration value="theater"/>
+      <xs:enumeration value="theme_park"/>
+      <xs:enumeration value="tourist_attraction"/>
+      <xs:enumeration value="town_hall"/>
+      <xs:enumeration value="university"/>
+      <xs:enumeration value="weather_station"/>
+      <xs:enumeration value="zoo"/>
+    </xs:restriction>
+  </xs:simpleType>
+
+  <xs:simpleType name="enumStateUS">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="ALASKA"/>
+      <xs:enumeration value="ALABAMA"/>
+      <xs:enumeration value="AMERICAN_SAMOA"/>
+      <xs:enumeration value="ARIZONA"/>
+      <xs:enumeration value="ARKANSAS"/>
+      <xs:enumeration value="CALIFORNIA"/>
+      <xs:enumeration value="COLORADO"/>
+      <xs:enumeration value="CONNECTICUT"/>
+      <xs:enumeration value="DELAWARE"/>
+      <xs:enumeration value="DISTRICT_OF_COLUMBIA"/>
+      <xs:enumeration value="FEDERATED_STATES_OF_MICRONESIA"/>
+      <xs:enumeration value="FLORIDA"/>
+      <xs:enumeration value="GEORGIA"/>
+      <xs:enumeration value="GUAM"/>
+      <xs:enumeration value="HAWAII"/>
+      <xs:enumeration value="IDAHO"/>
+      <xs:enumeration value="ILLINOIS"/>
+      <xs:enumeration value="INDIANA"/>
+      <xs:enumeration value="IOWA"/>
+      <xs:enumeration value="KANSAS"/>
+      <xs:enumeration value="KENTUCKY"/>
+      <xs:enumeration value="LOUISIANA"/>
+      <xs:enumeration value="MAINE"/>
+      <xs:enumeration value="MARSHALL_ISLANDS"/>
+      <xs:enumeration value="MARYLAND"/>
+      <xs:enumeration value="MASSACHUSETTS"/>
+      <xs:enumeration value="MICHIGAN"/>
+      <xs:enumeration value="MINNESOTA"/>
+      <xs:enumeration value="MISSISSIPPI"/>
+      <xs:enumeration value="MISSOURI"/>
+      <xs:enumeration value="MONTANA"/>
+      <xs:enumeration value="NEBRASKA"/>
+      <xs:enumeration value="NEVADA"/>
+      <xs:enumeration value="NEW_HAMPSHIRE"/>
+      <xs:enumeration value="NEW_JERSEY"/>
+      <xs:enumeration value="NEW_MEXICO"/>
+      <xs:enumeration value="NEW_YORK"/>
+      <xs:enumeration value="NORTH_CAROLINA"/>
+      <xs:enumeration value="NORTH_DAKOTA"/>
+      <xs:enumeration value="NORTHERN_MARIANA_ISLANDS"/>
+      <xs:enumeration value="OHIO"/>
+      <xs:enumeration value="OKLAHOMA"/>
+      <xs:enumeration value="OREGON"/>
+      <xs:enumeration value="PALAU"/>
+      <xs:enumeration value="PENNSYLVANIA"/>
+      <xs:enumeration value="PUERTO_RICO"/>
+      <xs:enumeration value="RHODE_ISLAND"/>
+      <xs:enumeration value="SOUTH_CAROLINA"/>
+      <xs:enumeration value="SOUTH_DAKOTA"/>
+      <xs:enumeration value="TENNESSEE"/>
+      <xs:enumeration value="TEXAS"/>
+      <xs:enumeration value="UTAH"/>
+      <xs:enumeration value="VERMONT"/>
+      <xs:enumeration value="VIRGIN_ISLANDS"/>
+      <xs:enumeration value="VIRGINIA"/>
+      <xs:enumeration value="WASHINGTON"/>
+      <xs:enumeration value="WEST_VIRGINIA"/>
+      <xs:enumeration value="WISCONSIN"/>
+      <xs:enumeration value="WYOMING"/>
+      <xs:enumeration value="ARMED_FORCES_AFRICA"/>
+      <xs:enumeration value="ARMED_FORCES_AMERICAS_EXCEPT_CANADA"/>
+      <xs:enumeration value="ARMED_FORCES_CANADA"/>
+      <xs:enumeration value="ARMED_FORCES_EUROPE"/>
+      <xs:enumeration value="ARMED_FORCES_MIDDLE_EAST"/>
+      <xs:enumeration value="ARMED_FORCES_PACIFIC"/>
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
+
