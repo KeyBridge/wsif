@@ -50,11 +50,14 @@ language of interest.
 </table>
 
 ## References / Requires:
-  [Jersey]: http://jersey.java.net/     Jersey is the open source, production quality, JAX-RS (JSR 311) Reference Implementation for building RESTful Web services.
+  [Jersey]: http://jersey.java.net/    
+  Jersey is the open source, production quality, JAX-RS (JSR 311) Reference Implementation for building RESTful Web services.
 
-  [Commons Codec]: http://commons.apache.org/codec/ Apache Commons Codec (TM) software provides implementations of common encoders and decoders such as Base64, Hex, Phonetic and URLs.
+  [Commons Codec]: http://commons.apache.org/codec/ 
+  Apache Commons Codec (TM) software provides implementations of common encoders and decoders such as Base64, Hex, Phonetic and URLs.
 
-  [Scribe-Java]: https://github.com/fernandezpablo85/scribe-java Scribe is a mature OAuth library for Java by Pablo Fernandez that is intended to work with all APIs.
+  [Scribe-Java]: https://github.com/fernandezpablo85/scribe-java 
+  Scribe is a mature OAuth library for Java by Pablo Fernandez that is intended to work with all APIs.
 
 ## GNU General Public License
 > This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
